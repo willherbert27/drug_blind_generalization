@@ -13,8 +13,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--save_path', type=str, default=None, help='Prefix for experiment output files')
-    parser.add_argument('--cancer_type', type=str, default='violet_data/violet_data_backup/gcsi_cancerType_dict.pkl', help='Pickle file containing dictionary of cancer types for included cell lines')
-    parser.add_argument('--omics_file', type=str, default='violet_data/clean_omics_data/depmap_expression_pt_filtered.txt')
+    parser.add_argument('--cancer_type', type=str, default='cancerType_dict.pkl', help='Pickle file containing dictionary of cancer types for included cell lines')
+    parser.add_argument('--omics_file', type=str, default='input_files/depmap_expression_pt_filtered.txt')
     parser.add_argument('--drugs', type=str, default=None, help='File containing Morgan fingerprints for drugs')
     parser.add_argument('--train_file', type=str, default=None, help='Cancer drug response dataset')
     parser.add_argument('--val_file', type=str, help='Premade validation set for experiments requiring it')
@@ -24,7 +24,6 @@ if __name__ == '__main__':
     parser.add_argument('--num_drugs', type=int, help='Number of drugs to include in training set')
     parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--lr', type=float, default=0.0001)
-    parser.add_argument('--track_training_composition', type=bool, default=False, help='Enable to keep training composition files for prediction')
     args = parser.parse_args()
     
     if args.num_drugs is None:
